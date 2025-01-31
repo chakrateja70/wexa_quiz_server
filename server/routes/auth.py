@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from server.controllers.auth import AuthController
-from server.database.models import UserCreate, UserLogin, UserOut
+from server.database.models.models import UserCreate, UserLogin, UserOut
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 

@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
 from server.utils.auth import validate_password
-from server.utils.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
+from server.database.config.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 # OAuth2 scheme to extract token from the Authorization header
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")

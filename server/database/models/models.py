@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from server.database.db import Base
+from server.database.index import Base
 from pydantic import BaseModel, EmailStr
 from fastapi import HTTPException
 

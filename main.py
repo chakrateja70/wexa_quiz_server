@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from server.database.db import engine
-from server.database.models import Base
+from server.database.index import engine
+from server.database.models.models import Base
 from server.routes.auth import router as auth_router
 from server.routes.questions import router as question_router
 from fastapi.middleware.cors import CORSMiddleware

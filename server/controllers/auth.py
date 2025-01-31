@@ -1,8 +1,8 @@
 from fastapi import Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from server.database.db import get_db
-from server.database.models import User
-from server.database.models import UserCreate, UserLogin, UserOut
+from server.database.index import get_db
+from server.database.models.models import User
+from server.database.models.models import UserCreate, UserLogin, UserOut
 from server.services.auth import AuthService
 
 class AuthController:
