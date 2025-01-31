@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from server.database.models.index import Question
-from server.database.models.index import QuestionCreate, QuestionOut
+from server.database.models.question import Question
+from server.database.models.question import QuestionCreate, QuestionOut
 
 class QuestionService:
     def get_all_questions(self, db: Session) -> list[QuestionOut]:

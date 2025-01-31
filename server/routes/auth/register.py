@@ -1,14 +1,11 @@
-
-
-
 from fastapi import APIRouter, Depends
-from server.controllers.auth import AuthController
-from server.database.models.index import UserCreate, UserOut
+from server.controllers.auth.register import RegisterController
+from server.database.models.user import UserCreate, UserOut
 
 router = APIRouter(prefix="/auth/register", tags=["Authentication"])
 
 @router.post("/", response_model=UserOut)
-def register(user: UserCreate, controller: AuthController = Depends()):
+def register(user: UserCreate, controller: RegisterController = Depends()):
     """
     Registers a new user.
     """

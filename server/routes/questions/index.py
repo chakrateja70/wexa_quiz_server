@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from server.controllers.question import QuestionController
-from server.database.models.index import QuestionCreate, QuestionOut
+from server.database.models.question import QuestionCreate, QuestionOut
 from server.services.auth import get_current_user
 
 router = APIRouter(prefix="/questions", tags=["Quiz Questions"])

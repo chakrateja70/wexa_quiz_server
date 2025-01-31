@@ -1,8 +1,8 @@
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
 from server.database.index import get_db
-from server.database.models.index import Question
-from server.database.models.index import QuestionCreate, QuestionOut
+from server.database.models.question import Question
+from server.database.models.question import QuestionCreate, QuestionOut
 from server.services.question import QuestionService
 
 class QuestionController:

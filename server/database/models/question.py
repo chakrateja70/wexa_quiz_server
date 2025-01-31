@@ -1,15 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from server.database.index import Base
-from pydantic import BaseModel, EmailStr
-from fastapi import HTTPException
+from pydantic import BaseModel
 
-class User(Base):
-    __tablename__ = "users"
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, unique=True, index=True, nullable=False)
-    email = Column(String, unique=True, index=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
-
+# SQLAlchemy Question Model
 class Question(Base):
     __tablename__ = "questions"
     id = Column(Integer, primary_key=True, index=True)
@@ -20,23 +13,7 @@ class Question(Base):
     option_d = Column(String, nullable=False)
     correct_answer = Column(Integer, nullable=False)
 
-
-class UserCreate(BaseModel):
-    username: str
-    email: EmailStr
-    password: str
-
-class UserLogin(BaseModel):
-    email: EmailStr
-    password: str
-
-class UserOut(BaseModel):
-    id: int
-    username: str
-    email: EmailStr
-    class Config:
-        orm_mode = True
-
+# Pydantic Schema for Creating Question
 class QuestionCreate(BaseModel):
     question: str
     option_a: str
@@ -45,6 +22,7 @@ class QuestionCreate(BaseModel):
     option_d: str
     correct_answer: int
 
+# Pydantic Schema for Output
 class QuestionOut(BaseModel):
     id: int
     question: str
@@ -53,5 +31,6 @@ class QuestionOut(BaseModel):
     option_c: str
     option_d: str
     correct_answer: int
+
     class Config:
         orm_mode = True

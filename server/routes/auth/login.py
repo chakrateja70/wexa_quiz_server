@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
-from server.controllers.auth import AuthController
-from server.database.models.index import UserLogin
+from server.controllers.auth.login import LoginController
+from server.database.models.user import UserLogin
 
 router = APIRouter(prefix="/auth/login", tags=["Authentication"])
 
 @router.post("/")
-def login(user: UserLogin, controller: AuthController = Depends()):
+def login(user: UserLogin, controller: LoginController = Depends()):
     """
     Logs in a user and returns a JWT access token.
     """

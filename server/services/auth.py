@@ -3,7 +3,7 @@ from jose import jwt, JWTError
 from datetime import datetime, timedelta
 from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
-from server.utils.auth import validate_password
+from server.utils.helper import validate_password
 from server.database.config.index import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 # OAuth2 scheme to extract token from the Authorization header

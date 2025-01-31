@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from server.database.index import engine
-from server.database.models.index import Base
+from server.database.models.user import Base
 # from server.routes.auth import router as auth_router
 
 from server.routes.auth.register import router as register_router
