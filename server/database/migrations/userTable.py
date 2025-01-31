@@ -1,20 +1,11 @@
-from alembic import op
-import sqlalchemy as sa
 
-# Migration identifiers
-revision = "<timestamp>_create_users_table"
-down_revision = None
-branch_labels = None
-depends_on = None
+from sqlalchemy import Column, Integer, String
+from server.database.index import Base
 
-def upgrade():
-    op.create_table(
-        "users",
-        sa.Column("id", sa.Integer(), primary_key=True, index=True),
-        sa.Column("username", sa.String(), unique=True, nullable=False, index=True),
-        sa.Column("email", sa.String(), unique=True, nullable=False, index=True),
-        sa.Column("hashed_password", sa.String(), nullable=False),
-    )
-
-def downgrade():
-    op.drop_table("users")
+# SQLAlchemy User Model
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True, nullable=False)
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)

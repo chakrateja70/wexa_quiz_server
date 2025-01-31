@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from server.controllers.question import QuestionController
+from server.services.question import QuestionController
 from server.database.models.question import QuestionCreate, QuestionOut
 from server.services.auth import get_current_user
 
